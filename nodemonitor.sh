@@ -32,7 +32,7 @@ noColor='\033[0m'      # no color
 ###  END CONFIG  ##################################################################################################
 
 if [ -n  "$BINDIR" ]; then
-   cli="timeout --kill-after=8 6 ${BINDIR}/solana"
+   cli="timeout -k 8 6 ${BINDIR}/solana"
 else
    if [ -z "$CONFIGDIR" ]; then echo "please configure the config directory"; exit 1; fi
    installDir="$(cat ${CONFIGDIR}/install/config.yml | grep 'active_release_dir\:' | awk '{print $2}')/bin"
